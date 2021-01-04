@@ -1,0 +1,552 @@
+/* CSS Document */
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+/*------ mobiel first -------*/
+HTML,
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    font-size: 100% / 250%;
+    letter-spacing: 0.08em;
+
+}
+
+/***************************/
+/*------ header: nav ------*/
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+header > nav {
+    background-color: black;
+    margin: 0px auto 0px auto;
+    top: 0;
+    width: 100%;
+    padding: 0.5em;
+}
+
+/*------Flexbox: navigation ------*/
+/*------ first unorder list in the nav ------*/
+header > nav > ul:nth-of-type(1) {
+    display: flex;
+    align-items: center;
+    height: 0.5em;
+
+}
+
+/* icon search & icon hamburger space */
+header > nav > ul:nth-of-type(1) li + li {
+    margin-left: 1em;
+}
+
+/* first child="LesMillss" krijgt meer ruimte en de rest wordt naar recht "geduwd" */
+header > nav > ul:nth-of-type(1) li:first-of-type {
+    margin-right: auto;
+}
+
+header > nav > ul:nth-of-type(1) li {
+    list-style: none;
+}
+
+/*------ titel "LesMills" style ------ */
+header > nav > ul > li > a {
+    color: whitesmoke;
+    /*font-family: 'Roboto', sans-serif;*/
+
+    /*font-family: "TradeGothicW01Cn18";
+    font-family: "HelveticaNeueW01-45Ligh"; */
+    font-family: "TradeGothicW01Cn18", sans-serif;
+
+    font-size: 1.5em;
+    font-weight: bold;
+    text-decoration: none;
+    text-shadow: 1px 1px 1px grey,
+        1px 1px 1px grey;
+    letter-spacing: 1px;
+    text-transform: none;
+}
+
+/* button navigation: search & hamburger */
+header > nav > ul > li > button {
+    /* button rand weglaten*/
+    display: contents;
+}
+
+/********************************/
+/* SVG search Icons button      */
+/* - source: svgicons.sparkk.fr */
+/********************************/
+
+header > nav > ul > li > button > svg.svg-icon {
+    width: 2em;
+    height: 10em;
+}
+
+.svg-icon path,
+.svg-icon polygon,
+.svg-icon rect {
+    fill: #BBBBBB;
+}
+
+.svg-icon circle {
+    stroke: #BBBBBB;
+    stroke-width: 1rem;
+}
+
+/* end SVG searchIcon */
+/********* End header*********/
+
+/********************/
+/*------ Main ------*/
+main {
+    display: grid;
+    /* display section elements as row */
+    grid-template-rows: 1fr;
+    /* grid-gap: 1.7em;
+    position: relative;*/
+    grid-gap: 1.7em;
+}
+
+main > section {
+    position: relative;
+
+}
+
+main > section > article {
+    position: relative;
+
+}
+
+/***************************************/
+/*------ all the figure elements ------*/
+/* with an image inside */
+figure {
+    margin: 0;
+    padding: 0;
+}
+
+/*------ all image caption make hidden------*/
+figcaption {
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+}
+
+/*------ Text positioning center ------*/
+/* text on the image */
+div.styleHome {
+    position: absolute;
+    top: 50%;
+    text-align: center;
+    left: 50%;
+    /* center small screen*/
+    transform: translate(-50%, -50%);
+    /* color: whitesmoke; */
+    color: whitesmoke;
+}
+
+
+/**************************************/
+/*------ Images at the homepage ------*/
+img {
+    max-width: 100%;
+}
+
+img.image-homePage {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    object-position: top;
+    /* margin-bottom: -3em;*/
+}
+
+/* hide elements on the page*/
+.hide-elements {
+    display: none;
+}
+
+/************************/
+/*------ Headings ------*/
+h1 {
+    /* hide h1 */
+    display: none;
+}
+
+h2,
+h3,
+p,
+a {
+    text-transform: uppercase;
+    font-weight: bold;
+
+}
+
+h2 {
+    font-size: 1.2em;
+
+}
+
+h3 {
+    font-size: 0.8em;
+}
+
+p {
+    font-size: 0.6em;
+}
+
+a {
+    font-size: 0.5em;
+    text-decoration: none;
+}
+
+/* list style general */
+li {
+    list-style: none;
+}
+
+
+/*****************************/
+/*------ first section ------*/
+main > section:nth-of-type(1) {
+    background-color: #00a077;
+
+}
+
+/* resize image on the first section */
+main > section:nth-of-type(1) > figure > img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    object-position: top;
+}
+
+/* links "button" --> 'vind een les', 'ontdek alle workouts'*/
+/* source: https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text/Styling_links */
+main > section:nth-of-type(1) > ul {
+    background-color: #00a077;
+    width: 100%;
+    text-align: center;
+}
+
+main > section:nth-of-type(1) > ul > li {
+    display: inline;
+    padding: 0.8em;
+    margin: 0;
+    line-height: 1em white;
+}
+
+main > section:nth-of-type(1) > ul > li > a {
+    color: white;
+    font-size: 0.8em;
+}
+
+/* 'ontdek alle workouts'*/
+main > section:nth-of-type(1) > ul > li:nth-of-type(2) {
+    /* T R B L */
+    border-style: none none none solid;
+    border-left-color: white;
+}
+
+/* end "ul>li>a"*/
+
+/*------ end 1e section ------*/
+
+/*************************************************/
+/*------ second section with two article's ------*/
+/* second section --> 1e article */
+main > section:nth-of-type(2) article:nth-of-type(1) {
+    display: grid;
+    grid-template-rows: [row1-start] 100% [row1-end] 180px [third-line] auto [last-line];
+    background-color: #004d66;
+}
+
+/* second section --> 2e article */
+main > section:nth-of-type(2) article:nth-of-type(2) {
+    display: grid;
+    grid-template-rows: [row1-start] 100% [row1-end] 10px [third-line] auto [last-line];
+    background-color: white;
+
+}
+
+/* second section --> 2e article, text style color */
+main > section:nth-of-type(2) article:nth-of-type(2) > div.styleHome2 {
+    color: black;
+    display: block;
+    padding-left: 5%;
+}
+
+/*****************************/
+/*------ third section ------*/
+/* source: https://css-tricks.com/snippets/css/complete-guide-grid/ */
+
+/* third section, position text*/
+main > section:nth-of-type(3) > article > div.styleHome3 {
+    position: absolute;
+    text-align: center;
+    top: 40%;
+    width: 80%;
+    left: 50%;
+    /* center small screen*/
+    transform: translate(-50%, -50%);
+    /* color: whitesmoke; */
+    color: whitesmoke;
+}
+
+/* third section > link "lees meer"*/
+main > section:nth-of-type(3) > article:nth-of-type(1) > div.styleHome3 > a {
+    color: white;
+    font-size: 1em;
+}
+
+/* grid area - 3e section */
+main > section:nth-of-type(3) {
+    display: grid;
+    grid-template-areas:
+        "primeur primeur"
+        "links rechts"
+        "linksOnder laatste";
+}
+
+main > section:nth-of-type(3) article:nth-of-type(1) {
+    grid-area: primeur;
+    margin-bottom: -1em;
+}
+
+main > section:nth-of-type(3) article:nth-of-type(2) {
+    grid-area: links;
+    margin-bottom: -1em;
+}
+
+main > section:nth-of-type(3) article:nth-of-type(3) {
+    grid-area: rechts;
+    margin-bottom: -1em;
+}
+
+main > section:nth-of-type(3) article:nth-of-type(4) {
+    grid-area: linksOnder;
+    margin-bottom: -0.2em;
+}
+
+main > section:nth-of-type(3) article:nth-of-type(5) {
+    grid-area: laatste;
+    background-color: #00a077;
+}
+
+/* end 3e section - grid area */
+
+
+
+main > section:nth-of-type(3) > article:nth-of-type(5) {
+    background-color: #00a077;
+}
+
+/*******************************/
+/*------ sixth section ------*/
+main > section:nth-of-type(6) {}
+
+
+/*******************************/
+/*------ seventh section ------*/
+main > section:nth-of-type(7) {
+    display: grid;
+    grid-template-rows: [row1-start] 100% [row1-end] 200px [third-line] auto [last-line];
+    background-color: black;
+    padding-bottom: 5%;
+
+}
+
+
+/********************************/
+/*------ Link "button" ---------*/
+/* button first section -yellow */
+a.buttonLink-yellow {
+    background-color: #ffc425;
+    color: black;
+    font-weight: bold;
+    padding: 1em 1.5em;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+
+
+/* link "button" position, first section -green */
+main > section:nth-of-type(1) > ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+/* link "button" position, first section -green */
+main > section:nth-of-type(1) > ul > li {
+    list-style: none;
+}
+
+/* button second section - white/grey */
+section:nth-of-type(2) > article:nth-of-type(1) > div.styleHome > a.buttonLink-section2 {
+    color: black;
+    border: solid 0.8em #efefef;
+    border-radius: 6%;
+    text-decoration: none;
+    background-color: #efefef;
+    font-size: 0.8em;
+}
+
+.buttonLink-blue {
+    background-color: #006384;
+    color: white;
+    font-weight: bold;
+    padding: 1em 1.5em;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 6%;
+    text-decoration: none;
+    font-size: 0.6em;
+}
+
+a.buttonLink {
+    background-color: #00a077;
+    color: white;
+    padding: 1em 1.5em;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+
+
+
+/*------------------BodyPump - page ------------------------*/
+
+.img-website {
+    display: none;
+}
+
+.img-mobile {
+    display: block;
+}
+
+div.styleArticle-bp {
+    vertical-align: top;
+    margin: 15px;
+}
+
+section:nth-of-type(3).s-bp3 {
+    background-color: black;
+    padding: 0;
+    margin: 0;
+    color: white;
+}
+
+/**********************/
+/*------ footer ------*/
+footer {
+    background-color: #2f2f2f;
+    color: #dddddd;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    /* padding-top: 5%;*/
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+footer h2 {
+    padding-top: 5%;
+}
+
+/* footer links "vind een les", "inloggen"*/
+footer > a {
+    display: inline;
+    padding: 0.3em;
+    margin: 0;
+    color: #ffc425;
+    font-size: 0.8em;
+}
+
+footer > a:nth-of-type(2) {
+    /* T R B L */
+    border-style: none none none solid;
+    border-left-color: #c6c6c6;
+    line-height: 3em;
+}
+
+/* SVG icon's*/
+footer > ul > li > a svg {
+    width: 50%;
+}
+
+/* svg footer iconen */
+footer > ul > li > a path {
+    /* icon color */
+    fill: #c6c6c6;
+}
+
+footer > ul {
+    display: flex;
+}
+
+footer > ul > li:first-of-type {
+    margin-left: -2em;
+}
+
+footer > ul > li + li {
+    margin-left: -10em;
+}
+
+/* end svg footer icon */
+
+
+
+/*------ website modes -------*/
+@media (min-width: 40em) {
+
+    /* grid area - 3e section */
+    main> section:nth-of-type(3) {
+        display: grid;
+        grid-template-areas:
+            "primeur primeur primeur primeur "
+            " links rechts linksOnder laatste";
+    }
+
+    .img-mobile {
+        display: none;
+    }
+
+    .img-website {
+        display: block;
+    }
+
+    footer > p {
+
+        width: 30%;
+    }
+    footer > ul > li + li {
+    margin-left: -15em;
+}
+
+}
+
+
+/* grid area - 3e section
+@media (min-width: 50em) {
+
+
+    main > section:nth-of-type(3) {
+        display: grid;
+        grid-template-areas:
+            "primeur primeur links rechts "
+            "primeur primeur linksOnder laatste";
+    }
+
+}
