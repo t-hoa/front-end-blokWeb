@@ -6,16 +6,15 @@
     box-sizing: border-box;
 }
 
-/*------ mobiel first -------*/
+/*------ mobile first -------*/
 HTML,
 body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
     background-color: white;
-    font-size: 100% / 250%;
-    letter-spacing: 0.08em;
-
+    /*font-size: 100%/ 250%;*/
+    letter-spacing: 0.12em;
 }
 
 /***************************/
@@ -26,7 +25,7 @@ header {
     z-index: 1;
 }
 
-header > nav {
+header > nav:first-of-type {
     background-color: black;
     margin: 0px auto 0px auto;
     top: 0;
@@ -36,36 +35,26 @@ header > nav {
 
 /*------Flexbox: navigation ------*/
 /*------ first unorder list in the nav ------*/
-header > nav > ul:nth-of-type(1) {
+header > nav:first-of-type > ul:nth-of-type(1) {
     display: flex;
     align-items: center;
     height: 0.5em;
-
 }
 
 /* icon search & icon hamburger space */
-header > nav > ul:nth-of-type(1) li + li {
+header > nav:first-of-type > ul:nth-of-type(1) li + li {
     margin-left: 1em;
 }
 
 /* first child="LesMillss" krijgt meer ruimte en de rest wordt naar recht "geduwd" */
-header > nav > ul:nth-of-type(1) li:first-of-type {
+header > nav:first-of-type > ul:nth-of-type(1) li:first-of-type {
     margin-right: auto;
 }
 
-header > nav > ul:nth-of-type(1) li {
-    list-style: none;
-}
-
 /*------ titel "LesMills" style ------ */
-header > nav > ul > li > a {
+header > nav:first-of-type > ul:first-of-type > li > a {
     color: whitesmoke;
-    /*font-family: 'Roboto', sans-serif;*/
-
-    /*font-family: "TradeGothicW01Cn18";
-    font-family: "HelveticaNeueW01-45Ligh"; */
     font-family: "TradeGothicW01Cn18", sans-serif;
-
     font-size: 1.5em;
     font-weight: bold;
     text-decoration: none;
@@ -75,18 +64,28 @@ header > nav > ul > li > a {
     text-transform: none;
 }
 
-/* button navigation: search & hamburger */
-header > nav > ul > li > button {
+/* button navigation: search  */
+header > nav:first-of-type > ul:first-of-type > li:nth-of-type(2) > button:first-of-type {
     /* button rand weglaten*/
     display: contents;
+    cursor: pointer;
+    border: none;
+}
+
+/* button navigation: hamburger */
+header > nav:first-of-type > ul:first-of-type > li:nth-of-type(3) > button:first-of-type {
+    background: black;
+    width: 4em;
+    height: 4em;
+    cursor: pointer;
+    border: none;
 }
 
 /********************************/
 /* SVG search Icons button      */
 /* - source: svgicons.sparkk.fr */
 /********************************/
-
-header > nav > ul > li > button > svg.svg-icon {
+header > nav:first-of-type > ul > li > button > svg.svg-icon {
     width: 2em;
     height: 10em;
 }
@@ -102,28 +101,72 @@ header > nav > ul > li > button > svg.svg-icon {
     stroke-width: 1rem;
 }
 
-/* end SVG searchIcon */
-/********* End header*********/
+/* end hamburger menu button: search*/
 
-/********************/
-/*------ Main ------*/
+/*------button lines - hamburger menu------*/
+/* https://stackoverflow.com/questions/38048131/how-to-newline-in-html-button */
+header > nav:first-of-type > ul:first-of-type > li:nth-of-type(3) > button.bnt-burger-toggle span {
+    display: block;
+    width: 100%;
+    border-top: 0.3rem solid grey;
+    margin-top: 0.3em;
+    /* animatie */
+    transition: all 0.3s ease;
+}
+
+/* hamburger menu links - scroll */
+header > nav:first-of-type > ul:nth-of-type(2) {
+    max-height: 50vh;
+    overflow-y: auto;
+}
+
+/* hamburger menu with links - invisible */
+.main-nav-links {
+    list-style-type: none;
+    padding: 2em;
+    display: none;
+}
+
+/*---------links text-hamburger menu---------------*/
+/* toegankelijkheid: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_icon_bar_v */
+header > nav:first-of-type > ul:nth-of-type(2) li a {
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+/* text hover -links menu */
+header > nav:first-of-type > ul:nth-of-type(2) li a:hover {
+    color: #738678;
+    background-color: #E1D8CF;
+    /* top-right-bottom-left*/
+    padding: 0.8em 2.5em 0.8em 2.5em;
+}
+
+/*unorder list - nav*/
+header > nav:first-of-type > ul:nth-of-type(2) li {
+    text-align: center;
+    margin: 2em auto;
+    border-bottom: 2px solid #738678;
+    padding-bottom: 1em;
+}
+
+/*-------- active button - show menu----------------- */
+/* add last */
+.active {
+    display: block;
+    /* background-color: red; link klikken*/
+}
+
+
+/* end SVG searchIcon */
+/*********----- End header-----*********/
+
+/*--------------- Main-----------------*/
 main {
     display: grid;
-    /* display section elements as row */
     grid-template-rows: 1fr;
-    /* grid-gap: 1.7em;
-    position: relative;*/
-    grid-gap: 1.7em;
-}
-
-main > section {
-    position: relative;
-
-}
-
-main > section > article {
-    position: relative;
-
+    grid-gap: 1.5em;
 }
 
 /***************************************/
@@ -134,78 +177,71 @@ figure {
     padding: 0;
 }
 
-/*------ all image caption make hidden------*/
+/*------ all image caption makes hidden------*/
 figcaption {
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
+    height: 1px;
     overflow: hidden;
     position: absolute;
     white-space: nowrap;
+    width: 1px;
 }
 
-/*------ Text positioning center ------*/
-/* text on the image */
-div.styleHome {
-    position: absolute;
-    top: 50%;
-    text-align: center;
-    left: 50%;
-    /* center small screen*/
-    transform: translate(-50%, -50%);
-    /* color: whitesmoke; */
-    color: whitesmoke;
-}
-
-
-/**************************************/
-/*------ Images at the homepage ------*/
+/*------ Images size------*/
 img {
     max-width: 100%;
 }
 
-img.image-homePage {
+img.imageSize-homePage {
     width: 100%;
-    height: 400px;
+    height: 50vh;
     object-fit: cover;
     object-position: top;
-    /* margin-bottom: -3em;*/
 }
 
-/* hide elements on the page*/
+/* hide elements on the page, headings*/
 .hide-elements {
-    display: none;
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
 }
 
 /************************/
 /*------ Headings ------*/
-h1 {
-    /* hide h1 */
-    display: none;
-}
-
+h1,
 h2,
 h3,
-p,
 a {
     text-transform: uppercase;
     font-weight: bold;
-
 }
 
-h2 {
-    font-size: 1.2em;
-
-}
-
+h2,
 h3 {
-    font-size: 0.8em;
+    font-size: 1.45em;
+    font-weight: 900;
+    text-shadow: 2px 2px black;
+}
+
+h4 {
+    font-size: 1.1em;
+    font-weight: 900;
+    text-shadow: 2px 2px black;
 }
 
 p {
-    font-size: 0.6em;
+    font-size: 0.98em;
+    font-weight: normal;
 }
 
 a {
-    font-size: 0.5em;
     text-decoration: none;
+    font-weight: bold;
 }
 
 /* list style general */
@@ -213,83 +249,203 @@ li {
     list-style: none;
 }
 
-
-/*****************************/
-/*------ first section ------*/
-main > section:nth-of-type(1) {
-    background-color: #00a077;
-
+/*------ Text positioning center ------*/
+/* text on the image */
+/* https://css-tricks.com/design-considerations-text-images/ */
+div.styleText {
+    position: absolute;
+    top: 35%;
+    text-align: center;
+    left: 50%;
+    /* center small screen*/
+    transform: translate(-50%, -50%);
+    color: whitesmoke;
+    width: 80%;
 }
 
-/* resize image on the first section */
-main > section:nth-of-type(1) > figure > img {
+/* for text position, makes section & article relative */
+main.p-home section {
+    position: relative;
+}
+
+main.p-home section article {
+    position: relative;
+}
+
+/*---------- SECTION 1 ----------*/
+main > section:nth-of-type(1) > div.styleText > h3 {
+    text-shadow: 2px 2px black;
+    font-size: 1.7em;
+}
+
+/* section 1, p elements style */
+main > section:nth-of-type(1) > div.styleText > p {
+    text-shadow: 2px 2px black;
+    font-size: 1.4em;
+}
+
+/* button link style section 1-- "ontdek meer"--*/
+main > section:nth-of-type(1) > a {
+    background-color: #ffc425;
+    color: black;
+    border-radius: 0.2rem;
+    font-size: 0.7em;
+    padding: 1em 1.5em;
+
+    position: absolute;
+    top: 70%;
+    text-align: center;
+    left: 50%;
+    /* center small screen*/
+    transform: translate(-50%, -50%);
+}
+
+/* link "ondek meer" backgroundcolor */
+main > section:nth-of-type(1) > a:hover {
+    color: gray;
+    background-color: #ffd972;
+}
+
+/* resize the image at the first section */
+main:first-of-type > section:nth-of-type(1) > figure > img {
     width: 100%;
     height: 500px;
     object-fit: cover;
     object-position: top;
 }
 
+/* button, change image */
+div.position-dots {
+    position: absolute;
+    top: 80%;
+    text-align: center;
+    left: 50%;
+    /* center small screen*/
+    transform: translate(-50%, -50%);
+}
+
 /* links "button" --> 'vind een les', 'ontdek alle workouts'*/
-/* source: https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text/Styling_links */
-main > section:nth-of-type(1) > ul {
-    background-color: #00a077;
+main:first-of-type > section:nth-of-type(1) > ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 0.2em;
+    background-color: whitesmoke;
     width: 100%;
+    text-align: center;
+    padding: 0;
+    margin-top: -0.3em;
+}
+
+/* links "list" style -"button" --> 'vind een les', 'ontdek alle workouts' */
+main:first-of-type > section:nth-of-type(1) > ul > li {
+    padding: 1em;
+    background-color: #00a077;
+}
+
+main:first-of-type > section:nth-of-type(1) > ul > li > a {
+    color: white;
+    font-size: 0.8em;
     text-align: center;
 }
 
-main > section:nth-of-type(1) > ul > li {
-    display: inline;
-    padding: 0.8em;
-    margin: 0;
-    line-height: 1em white;
+/* section 1, links on hover - text and backgroundcolor */
+main:first-of-type > section:nth-of-type(1) > ul > li > a:hover {
+    color: black;
+    cursor: pointer;
 }
 
-main > section:nth-of-type(1) > ul > li > a {
-    color: white;
-    font-size: 0.8em;
+main:first-of-type > section:nth-of-type(1) > ul > li:hover {
+    background-color: #00d39d;
 }
 
-/* 'ontdek alle workouts'*/
-main > section:nth-of-type(1) > ul > li:nth-of-type(2) {
-    /* T R B L */
-    border-style: none none none solid;
-    border-left-color: white;
-}
-
-/* end "ul>li>a"*/
-
+/* end links, section 1 */
 /*------ end 1e section ------*/
 
-/*************************************************/
-/*------ second section with two article's ------*/
-/* second section --> 1e article */
-main > section:nth-of-type(2) article:nth-of-type(1) {
+/*--------- SECTION 2 - WITH 2 ARTICLES ----------*/
+main > section:nth-of-type(2) {
+    margin-top: -1em;
+}
+
+/* section 2 --> 1e article */
+main > section:nth-of-type(2).section-home-two article:nth-of-type(1) {
     display: grid;
     grid-template-rows: [row1-start] 100% [row1-end] 180px [third-line] auto [last-line];
     background-color: #004d66;
-}
-
-/* second section --> 2e article */
-main > section:nth-of-type(2) article:nth-of-type(2) {
-    display: grid;
-    grid-template-rows: [row1-start] 100% [row1-end] 10px [third-line] auto [last-line];
-    background-color: white;
 
 }
 
-/* second section --> 2e article, text style color */
-main > section:nth-of-type(2) article:nth-of-type(2) > div.styleHome2 {
+/* section 2 --> 1e article - text style*/
+main > section:nth-of-type(2).section-home-two > article:nth-of-type(1) > div.styleText h3 {
+    font-size: 1.1em;
+}
+
+/* button link style--"meer info" */
+main > section:nth-of-type(2) article:nth-of-type(1) a {
     color: black;
-    display: block;
-    padding-left: 5%;
+    background-color: #efefef;
+    top: 80%;
 }
 
-/*****************************/
-/*------ third section ------*/
-/* source: https://css-tricks.com/snippets/css/complete-guide-grid/ */
+main > section:nth-of-type(2) article:nth-of-type(1) a:hover {
+    color: whitesmoke;
+    background-color: black;
+}
 
-/* third section, position text*/
-main > section:nth-of-type(3) > article > div.styleHome3 {
+/* section 2, article 2, text style */
+main > section:nth-of-type(2) article:nth-of-type(2) div.styleText-left > h3 {
+    color: black;
+    text-shadow: none;
+}
+
+main > section:nth-of-type(2) article:nth-of-type(2) div.styleText-left > h4 {
+    text-shadow: none;
+}
+
+/*---------- section 3 -----------*/
+main.p-home section:nth-of-type(3).section-home-three article {
+    position: relative;
+}
+
+/* add grid area - section 3 */
+main > section:nth-of-type(3).section-home-three {
+    display: grid;
+    grid-gap: 0em;
+    grid-template-areas:
+        "primeur primeur"
+        "links rechts"
+        "linksOnder laatste";
+}
+
+/* define grid-area to articles */
+main > section:nth-of-type(3).section-home-three article:nth-of-type(1) {
+    grid-area: primeur;
+    margin-bottom: -0.6em;
+}
+
+main > section:nth-of-type(3).section-home-three article:nth-of-type(2) {
+    grid-area: links;
+    margin-bottom: -0.3em;
+}
+
+main > section:nth-of-type(3).section-home-three article:nth-of-type(3) {
+    grid-area: rechts;
+    margin-bottom: -0.3em;
+}
+
+main > section:nth-of-type(3).section-home-three article:nth-of-type(4) {
+    grid-area: linksOnder;
+    margin-bottom: -0.3em;
+}
+
+main > section:nth-of-type(3).section-home-three article:nth-of-type(5) {
+    grid-area: laatste;
+    margin-bottom: -0.3em;
+}
+
+/* end - grid area -section 3*/
+
+/* third section, article 1, position text*/
+main > section:nth-of-type(3) > article:first-of-type > div.styleText {
     position: absolute;
     text-align: center;
     top: 40%;
@@ -297,256 +453,584 @@ main > section:nth-of-type(3) > article > div.styleHome3 {
     left: 50%;
     /* center small screen*/
     transform: translate(-50%, -50%);
-    /* color: whitesmoke; */
     color: whitesmoke;
 }
 
 /* third section > link "lees meer"*/
-main > section:nth-of-type(3) > article:nth-of-type(1) > div.styleHome3 > a {
+main > section:nth-of-type(3) > article:nth-of-type(1) > div.styleText > a {
     color: white;
     font-size: 1em;
 }
 
-/* grid area - 3e section */
-main > section:nth-of-type(3) {
-    display: grid;
-    grid-template-areas:
-        "primeur primeur"
-        "links rechts"
-        "linksOnder laatste";
+main > section:nth-of-type(3) > article:nth-of-type(1) > div.styleText > a:hover {
+    color: #00edb0;
+    border-bottom: 0.2em solid white;
 }
 
-main > section:nth-of-type(3) article:nth-of-type(1) {
-    grid-area: primeur;
-    margin-bottom: -1em;
+/* font style section 3 */
+main > section:nth-of-type(3) > article div.styleText h3 {
+    font-size: 0.9em;
 }
 
-main > section:nth-of-type(3) article:nth-of-type(2) {
-    grid-area: links;
-    margin-bottom: -1em;
+main > section:nth-of-type(3) > article div.styleText {
+    top: 50%;
 }
 
-main > section:nth-of-type(3) article:nth-of-type(3) {
-    grid-area: rechts;
-    margin-bottom: -1em;
-}
 
-main > section:nth-of-type(3) article:nth-of-type(4) {
-    grid-area: linksOnder;
-    margin-bottom: -0.2em;
-}
-
-main > section:nth-of-type(3) article:nth-of-type(5) {
-    grid-area: laatste;
-    background-color: #00a077;
-}
-
-/* end 3e section - grid area */
-
-
-
-main > section:nth-of-type(3) > article:nth-of-type(5) {
-    background-color: #00a077;
-}
-
-/*******************************/
-/*------ sixth section ------*/
-main > section:nth-of-type(6) {}
-
+/*----------- end section 3 ---------*/
 
 /*******************************/
 /*------ seventh section ------*/
 main > section:nth-of-type(7) {
     display: grid;
-    grid-template-rows: [row1-start] 100% [row1-end] 200px [third-line] auto [last-line];
+    grid-template-rows: [row1-start] 100% [row1-end] 300px [third-line] auto [last-line];
     background-color: black;
-    padding-bottom: 5%;
-
 }
 
-
-/********************************/
-/*------ Link "button" ---------*/
-/* button first section -yellow */
-a.buttonLink-yellow {
-    background-color: #ffc425;
-    color: black;
-    font-weight: bold;
-    padding: 1em 1.5em;
-    text-decoration: none;
-    text-transform: uppercase;
-}
-
-
-
-/* link "button" position, first section -green */
-main > section:nth-of-type(1) > ul {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0;
-    margin: 0;
-    width: 100%;
-}
-
-/* link "button" position, first section -green */
-main > section:nth-of-type(1) > ul > li {
-    list-style: none;
-}
-
-/* button second section - white/grey */
-section:nth-of-type(2) > article:nth-of-type(1) > div.styleHome > a.buttonLink-section2 {
-    color: black;
-    border: solid 0.8em #efefef;
-    border-radius: 6%;
-    text-decoration: none;
-    background-color: #efefef;
-    font-size: 0.8em;
-}
-
-.buttonLink-blue {
-    background-color: #006384;
-    color: white;
-    font-weight: bold;
-    padding: 1em 1.5em;
-    text-decoration: none;
-    text-transform: uppercase;
-    border-radius: 6%;
-    text-decoration: none;
-    font-size: 0.6em;
-}
-
-a.buttonLink {
+/* button link style section 7 */
+main > section:nth-of-type(7) a {
     background-color: #00a077;
     color: white;
-    padding: 1em 1.5em;
+}
+
+main > section:nth-of-type(7) > a:hover {
+    background-color: #00edb0;
+    color: black;
+}
+
+/* button style general */
+/* button link "same" style for section 4,5,6 */
+a.link-button {
+    background-color: #006384;
+    color: white;
+    border-radius: 0.2rem;
     text-decoration: none;
-    text-transform: uppercase;
+    font-size: 0.7em;
+    padding: 1em 1.5em;
+
+    /* button position */
+    position: absolute;
+    top: 75%;
+    text-align: center;
+    left: 50%;
+    /* center small screen*/
+    transform: translate(-50%, -50%);
 }
 
-
-
-
-/*------------------BodyPump - page ------------------------*/
-
-.img-website {
-    display: none;
+a.link-button:hover {
+    color: whitesmoke;
+    background-color: #009cd1;
 }
 
-.img-mobile {
-    display: block;
+/* button link position without img (section 2 and 7) */
+.link-button-noImg {
+    position: absolute;
+    top: 75%;
+    text-align: center;
+    left: 50%;
+    /* center small screen*/
+    transform: translate(-50%, -50%);
+    border-radius: 0.2rem;
+    font-size: 0.7em;
+    padding: 1em 1.5em;
 }
 
-div.styleArticle-bp {
-    vertical-align: top;
-    margin: 15px;
+/***********************************************************************************/
+/*----------------------------------- BODYPUMP PAGE -------------------------------*/
+/* section 1 - bp page */
+main.p-bodypump > section:nth-of-type(1) {
+    width: 100%;
+    height: 50vh;
+    /* background image */
+    background-image: url('../images/bpPhoto/bp1.jpg');
+    /* Center and scale the image nicely */
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: inherit;
+    margin-bottom: -2em;
 }
 
-section:nth-of-type(3).s-bp3 {
+/* section 1 - text style - bp page */
+main.p-bodypump > section:nth-of-type(1) > div.styleText-bp {
+    color: whitesmoke;
+    text-shadow: 2px 2px black;
+    margin-top: 20%;
+}
+
+/* section 1 - link "zoek een les in de buurt" - bp page */
+main.p-bodypump > section:nth-of-type(1) > div.styleText-bp > a {
+    text-shadow: none;
+    background-color: #fe0000;
+    color: black;
+    border-radius: 0.2rem;
+    font-size: 0.7em;
+    padding: 1em 1.5em;
+    margin-left: 5%;
+}
+
+main.p-bodypump > section:nth-of-type(1) > div.styleText-bp > a:hover {
+    background-color: #ff4c4c;
+    color: whitesmoke;
+
+}
+
+/*----- content text, section 2 - bp page */
+/* unorderlist style */
+main.p-bodypump > section:nth-of-type(2) ul {
     background-color: black;
-    padding: 0;
+    color: white;
+    text-align: center;
+}
+
+main.p-bodypump > section:nth-of-type(2) ul li {
+    padding: 1em;
+    font-size: 1.2em;
+}
+
+/* red check mark svg icon */
+main.p-bodypump > section:nth-of-type(2) ul > li > svg {
+    fill: red;
+}
+
+/*--- END SECTION 2 - PB PAGE */
+
+/*--------- SECTION 3 ---- PB PAGE--*/
+/* subject - "wat is bodypump?" */
+main.p-bodypump > section:nth-of-type(3) {
+    margin-top: -2em;
+}
+
+main.p-bodypump > section:nth-of-type(3) > div.styleText-bp a {
+    font-size: 1em;
+    font-weight: normal;
+    text-decoration: underline;
+}
+
+/*--------- SECTION 4 ---- BP PAGE--*/
+/* subject - "train alle spieren" */
+main.p-bodypump section:nth-of-type(4) {
+    /* create grid */
+    display: grid;
+    grid-gap: 0em;
+    grid-template-areas:
+        "article-one"
+        "article-two"
+        "article-three";
+
+    background-color: #2b2b2b;
+    color: #dddddd;
+    padding-bottom: 1em;
+}
+
+/* section 4 -- BP page--create grid - articles */
+main.p-bodypump section:nth-of-type(4) article:first-of-type {
+    grid-area: article-one;
+    text-align: center;
+}
+
+main.p-bodypump section:nth-of-type(4) article:nth-of-type(2) {
+    grid-area: article-two;
+}
+
+main.p-bodypump section:nth-of-type(4) article:nth-of-type(3) {
+    grid-area: article-three;
+}
+
+/* section 4 style heading 3 */
+main.p-bodypump > section:nth-of-type(4) h3 {
+    font-weight: lighter;
+    font-size: 1.3em;
+}
+
+/* section 4 - space between h3 and p elements on articles */
+main.p-bodypump > section:nth-of-type(4) > article:first-of-type > div.content-center > h3 + p {
+    margin-top: -0.5em;
+}
+
+main.p-bodypump > section:nth-of-type(4) > article h3 + p {
+    margin-top: -1em;
+}
+
+/* end section 4 - bp page-- */
+
+/*--------- SECTION 5 ---- BP PAGE--*/
+/* section 5 - article space */
+main.p-bodypump > section:nth-of-type(5) > article:first-of-type {
+    margin-bottom: 2em;
+}
+
+/* section 5 - text space */
+main.p-bodypump > section:nth-of-type(5) > article:first-of-type > div.styleText-bp > h3 + p {
+    margin-top: -1em;
+}
+
+/* section 5 -youtube video, add height & width --*/
+main.p-bodypump > section:nth-of-type(5) > iframe {
+    width: 100%;
+    height: 40vh;
+    /* geen frameborder="0" in HTML gebruiken, maar in css oplossen met border - youtube video link */
+    border: 0;
+}
+
+/* --------- SECTION 6 ------BP PAGE---*/
+/* section 6 - article 1: h3 and h4 space */
+main.p-bodypump > section:nth-of-type(6) > article:first-of-type > div.styleText-bp h3 + h4 {
+    margin-top: -1em;
+}
+
+main.p-bodypump > section:nth-of-type(6) > article:first-of-type > div.styleText-bp h4 {
+    color: #676767;
+}
+
+
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Auto-placement_in_CSS_Grid_Layout */
+/* music list */
+main.p-bodypump > section:nth-of-type(6) > ul:first-of-type {
+    display: grid;
+    grid-template-rows: repeat(0, 1fr);
+    grid-gap: 0;
     margin: 0;
+    padding: 0;
+    background-color: #398487;
     color: white;
 }
 
-/**********************/
-/*------ footer ------*/
-footer {
-    background-color: #2f2f2f;
-    color: #dddddd;
-    margin: 0;
-    width: 100%;
-    height: 100%;
-    /* padding-top: 5%;*/
+main.p-bodypump > section:nth-of-type(6) > ul:first-of-type li {
+    padding-left: 3em;
+
+}
+
+/* https://www.w3schools.com/cssref/sel_nth-child.asp */
+main.p-bodypump > section:nth-of-type(6) > ul:first-of-type > li:nth-child(even) {
+    background-color: #4d9093;
+}
+
+main.p-bodypump > section:nth-of-type(6) > ul:first-of-type li h3 {
+    font-size: 1.3em;
+}
+
+main.p-bodypump > section:nth-of-type(6) > ul:first-of-type li > h3 > svg {
+    fill: white;
+}
+
+/* end section 6 ----BP page --*/
+
+/* ---general style content - pb page---*/
+div.styleText-pb h2,
+h3,
+h4 {
+    text-shadow: none;
     padding-left: 5%;
     padding-right: 5%;
 }
 
-footer h2 {
-    padding-top: 5%;
+
+/*--------- END BODYPUMP PAGE END---------*/
+
+
+/*************************************************************/
+/*------------------------- FOOTER --------------------------*/
+footer {
+    background-color: #2f2f2f;
+    color: #dddddd;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    margin-top: 1em;
+
 }
 
-/* footer links "vind een les", "inloggen"*/
-footer > a {
+footer > a:first-of-type {
+    font-weight: 900;
+    font-size: 1.6em;
+}
+
+/* space between heaadings */
+footer h4 + p {
+    margin-top: -1.3em;
+    text-decoration: none;
+}
+
+footer p {
+    font-weight: normal;
+}
+
+/* content text/ links/ svg */
+footer > h3,
+h4,
+p,
+a,
+ul {
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+/* footer links "vind een les" and "inloggen"*/
+footer > a:nth-of-type(2),
+a:nth-of-type(3) {
     display: inline;
-    padding: 0.3em;
-    margin: 0;
     color: #ffc425;
     font-size: 0.8em;
 }
 
-footer > a:nth-of-type(2) {
+footer > a:hover {
+    color: #ffeebf;
+
+}
+
+/* line between the links "vind een les" and "inloggen"*/
+footer > a:nth-of-type(3) {
     /* T R B L */
     border-style: none none none solid;
     border-left-color: #c6c6c6;
     line-height: 3em;
+    padding-left: 1.5em;
 }
 
-/* SVG icon's*/
-footer > ul > li > a svg {
-    width: 50%;
-}
-
-/* svg footer iconen */
-footer > ul > li > a path {
+/*---- Social media SVG icons---*/
+footer > ul > li > a > svg {
+    width: 100%;
+    height: 8vw;
     /* icon color */
     fill: #c6c6c6;
+}
+
+footer > ul > li > a > svg:hover {
+    fill: #ffeebf;
 }
 
 footer > ul {
     display: flex;
 }
 
-footer > ul > li:first-of-type {
-    margin-left: -2em;
-}
-
+/* space between the li's SVG icons */
 footer > ul > li + li {
-    margin-left: -10em;
+    margin-left: -8em;
 }
 
-/* end svg footer icon */
+/* footer section - name and offical website link "LesMills" */
+footer > section {
+    text-align: center;
+    line-height: 0em;
+}
 
+footer > section a {
+    color: whitesmoke;
+    font-size: 0.5em;
+    font-weight: normal;
+    text-decoration: underline;
+}
 
+footer > section a:hover {
+    color: #ffeebf;
+}
 
-/*------ website modes -------*/
-@media (min-width: 40em) {
+/* END FOOTER */
 
-    /* grid area - 3e section */
-    main> section:nth-of-type(3) {
+/*************************************************************/
+/*------------------------ MEDIA QUERY ----------------------*/
+/* ---- website modes ---- */
+@media (min-width:40em) {
+
+    /* text  homepage general*/
+    div.styleText h3 {
+        font-size: 1.7em;
+    }
+
+    div.styleText p {
+        font-size: 1.5em;
+    }
+
+    /* homepage section 1 -p and h3 */
+    main > section:first-of-type > div.styleText > h3 {
+        font-size: 1.7em;
+        text-shadow: 2px 2px black;
+    }
+
+    main > section:first-of-type > div.styleText > p {
+        font-size: 1.5em;
+    }
+
+    /* homepage ---grid area - section 3 */
+    main > section:nth-of-type(3).section-home-three {
+        /* breakepoint*/
+       /* max-width: 500vh;
+        margin-left: 10%;
+        margin-right: 10%; */
         display: grid;
+        grid-gap: 0;
         grid-template-areas:
-            "primeur primeur primeur primeur "
+            "primeur primeur primeur primeur"
             " links rechts linksOnder laatste";
     }
 
-    .img-mobile {
-        display: none;
+    main > section:nth-of-type(3).section-home-three > article div.styleText > h3 {
+        font-size: 0.9em;
     }
 
-    .img-website {
-        display: block;
+    main > section:nth-of-type(3).section-home-three > article div.styleText > p {
+        font-size: 0.7em;
     }
 
-    footer > p {
+    /*-----------------MEDIA BODYPUMP PAGE ----------*/
+    /*section 1, change background */
+    main.p-bodypump > section:nth-of-type(1) {
+        background-image: url('../images/bpPhoto/bp-web1.jpg');
 
-        width: 30%;
+        min-height: 100%;
+        /* Center and scale the image nicely */
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: inherit;
     }
-    footer > ul > li + li {
-    margin-left: -15em;
-}
 
-}
+    /* section 1 - text style - bp page */
+    main.p-bodypump > section:nth-of-type(1) > div.styleText-bp {
+        margin-top: 10%;
+        margin-left: 20%;
+    }
 
+    main.p-bodypump > section:nth-of-type(1) > div.styleText-bp h3 {
+        font-size: 2em;
+        text-shadow: 2px 2px black;
+    }
 
-/* grid area - 3e section
-@media (min-width: 50em) {
+    main.p-bodypump > section:nth-of-type(1) > div.styleText-bp p {
+        font-size: 1.2em;
+    }
 
+    /* section 2 - ul list responsive */
+    main.p-bodypump > section:nth-of-type(2) ul li {
+        display: inline-block;
 
-    main > section:nth-of-type(3) {
+    }
+
+    /* SECTION 4--BP PAGE --*/
+    main.p-bodypump section:nth-of-type(4) {
+        /* create grid - responsive */
         display: grid;
+        grid-gap: 0em;
         grid-template-areas:
-            "primeur primeur links rechts "
-            "primeur primeur linksOnder laatste";
+            "article-one article-one article-one article-one"
+            "article-two article-two article-three article-three";
+
     }
 
+    /* section 4- BP page - position text */
+    main.p-bodypump section:nth-of-type(4) article {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+    /*--------- SECTION 6 --- BP PAGE --*/
+    main.p-bodypump > section:nth-of-type(6) > ul:first-of-type {
+        margin: 0;
+        padding: 0;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 0;
+        grid-auto-columns: 30vh;
+    }
+
+    /* section 6 - BP page - unordered list background-color*/
+    /* https://cssgradient.io */
+    main.p-bodypump > section:nth-of-type(6) > ul:first-of-type > li.li-color-one {
+        background: rgb(20, 33, 61);
+        background: linear-gradient(180deg, rgba(20, 33, 61, 1) 6%, rgba(57, 132, 135, 1) 38%, rgba(77, 144, 147, 1) 100%);
+    }
+
+    main.p-bodypump > section:nth-of-type(6) > ul:first-of-type > li.li-color-oneA {
+        background-color: #4d9093;
+    }
+
+    main.p-bodypump > section:nth-of-type(6) > ul:first-of-type > li.li-color-oneL {
+        background: rgb(20, 33, 61);
+        background: linear-gradient(0deg, rgba(20, 33, 61, 1) 5%, rgba(57, 132, 135, 1) 38%, rgba(77, 144, 147, 1) 100%);
+    }
+
+    main.p-bodypump > section:nth-of-type(6) > ul:first-of-type > li.li-color-twoB {
+        background-color: #398487;
+    }
+
+    /* ----END ---section 6 - BP page - unordered list background-color*/
+
+    /* media query(40em) - footer */
+    /* context footer p */
+    footer > p {
+        width: 60%;
+    }
+
+    /* space between SVG icons*/
+    footer > ul > li + li {
+        margin-left: -16em;
+    }
+
+}
+
+
+@media (min-width:50em) {
+
+    /* Homepage "LesMills"--grid area - section 3 */
+    main > section:nth-of-type(3).section-home-three {
+        display: grid;
+        grid-gap: 0;
+        grid-template-areas:
+            "primeur primeur primeur primeur links rechts"
+            "primeur primeur primeur primeur linksOnder laatste";
+    }
+
+    main > section:nth-of-type(3).section-home-three div.styleText h3 {
+        font-size: 0.8em;
+    }
+
+    main > section:nth-of-type(3).section-home-three div.styleText p {
+        font-size: 0.6em;
+    }
+
+    /*----------MEDIA QUERY 50EM -BODYPUMP PAGE ------*/
+
+
+    main.p-bodypump > section:nth-of-type(4) > article:nth-of-type(2),
+    article:nth-of-type(3) {
+        display: inline;
+
+    }
+
+
+    /* section 5 -youtube video, add height & width --*/
+    main.p-bodypump > section:nth-of-type(5) > iframe {
+        width: 90%;
+        height: 60vh;
+        border: 0;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+
+    }
+
+
+
+}
+
+
+
+
+/********************************************/
+/* --- hamburger menu "click", lines changes -- JS-- */
+.toggle .line-one-menu {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.toggle .line-two-menu {
+    opacity: 0;
+}
+
+.toggle .line-three-menu {
+    transform: rotate(45deg) translate(-5px, -6px);
 }

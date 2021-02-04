@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="nl">
 
 <head>
     <!-- information about the page also for screen readers -->
@@ -25,80 +25,88 @@
                 </li>
                 <li><button id='demo'><svg class="svg-icon" viewBox="0 0 20 20">
                             <path d="M18.125,15.804l-4.038-4.037c0.675-1.079,1.012-2.308,1.01-3.534C15.089,4.62,12.199,1.75,8.584,1.75C4.815,1.75,1.982,4.726,2,8.286c0.021,3.577,2.908,6.549,6.578,6.549c1.241,0,2.417-0.347,3.44-0.985l4.032,4.026c0.167,0.166,0.43,0.166,0.596,0l1.479-1.478C18.292,16.234,18.292,15.968,18.125,15.804 M8.578,13.99c-3.198,0-5.716-2.593-5.733-5.71c-0.017-3.084,2.438-5.686,5.74-5.686c3.197,0,5.625,2.493,5.64,5.624C14.242,11.548,11.621,13.99,8.578,13.99 M16.349,16.981l-3.637-3.635c0.131-0.11,0.721-0.695,0.876-0.884l3.642,3.639L16.349,16.981z"></path>
-                            <!--source menu: https://css-tricks.com/snippets/svg/svg-hamburger-menu/ -->
-                        </svg></button></li>
-                <li><button><svg class="svg-icon" viewBox="0 0 100 80">
-                            <rect width="100" height="20"></rect>
-                            <rect y="30" width="100" height="20"></rect>
-                            <rect y="60" width="100" height="20"></rect>
-                        </svg></button></li>
+                            <!--source menu: https://css-tricks.com/snippets/svg/svg-hamburger-menu/-->
+                        </svg></button>
+
+                </li>
+                <li>
+                    <button class="bnt-burger-toggle" id="js-bnt-toggle">
+                        <span class='line-one-menu'></span>
+                        <span class='line-two-menu'></span>
+                        <span class='line-three-menu'></span>
+                    </button>
+                </li>
+            </ul>
+            <!-- hamburger menu links -->
+            <ul class="main-nav-links" id="js-nav-links">
+                <li><a href="#">LOG IN</a></li>
+                <li><a href="#">GLOBAL</a></li>
+                <li><a href="#">FIND A CLASS</a></li>
+                <li><a href="#">WORKOUT</a></li>
+                <li><a href="#">AT HOME</a></li>
+                <li><a href="#">INSTRUCTORS</a></li>
+                <li><a href="#">CLUBS &amp; FACILITIES</a></li>
+                <li><a href="#">FIT PLANET</a></li>
+                <li><a href="#">SHOP</a></li>
+                <li><a href="#">EVENTS</a></li>
             </ul>
         </nav>
 
-        <!-- nav
- <nav>
-       <ul>
-           <li><a href="#">GLOBAL</a></li>
-           <li><a href="#">LOG IN</a></li>
-           <li><a href="#">FIND A CLASS</a></li>
-           <li><a href="#">WORKOUT</a></li>
-           <li><a href="#">AT HOME</a></li>
-           <li><a href="#">INSTRUCTORS</a></li>
-           <li><a href="#">CLUBS &amp; FACILITIES</a></li>
-           <li><a href="#">FIT PLANET</a></li>
-           <li><a href="#">SHOP</a></li>
-           <li><a href="#">EVENTS</a></li>
-       </ul>
-       </nav>
-    -->
+        <!-- nav menu links-->
+        <nav>
+
+        </nav>
+
     </header>
     <!-- main content -->
-    <main>
+    <main class="p-home">
         <!-- 1 section -->
         <section>
+            <h2 class='hide-elements'>LesMills ondek meer</h2>
             <figure>
-                <img class='imgResize' src="images/indexPhoto/afb1-home.jpg" alt='afb-web1'>
-                <!--<figcaption>LesMills barre</figcaption> -->
+                <img src="images/indexPhoto/afb1-home.jpg" alt='afb-web'>
+                <figcaption>LesMills barre</figcaption>
             </figure>
-            <div class='styleHome'>
-                <h2>LesMills Barre</h2>
+            <div class='styleText'>
+                <h3>LesMills Barre</h3>
                 <p>A Beautiful burn.</p>
-                <a class='buttonLink-yellow' href='#'>Ontdek meer</a>
             </div>
+            <a href='#'>Ontdek meer</a>
+
             <ul>
                 <li><a href='#'>Vind een les</a></li>
                 <li><a href='#'>Ontdek alle workouts</a></li>
             </ul>
         </section>
-
         <!-- 2 section -->
-        <section>
+        <section class="section-home-two">
             <h2 class='hide-elements'>Article over kwartaalworkshop en de laaste nieuws</h2>
             <article>
-                <div class='styleHome'>
+                <div class='styleText'>
                     <h3>Kwartaalworkshops</h3>
                     <h4>Overzicht van alle kwartaalworkshops
                     </h4>
-                    <a class='buttonLink-section2' href='#'>Meer info</a>
                 </div>
+                <a class="link-button-noImg" href='#'>Meer info</a>
             </article>
             <article>
-                <div class='styleHome2'>
+                <div class="styleText-left">
                     <h3>Laatste nieuws</h3>
-                    <h4>Blijf op de hoogte van alle ins & out!
+                    <h4>Blijf op de hoogte van alle ins &#38; out!
                     </h4>
                 </div>
             </article>
         </section>
 
         <!-- 3 section -->
-        <section>
+        <section class='section-home-three'>
             <h2 class='hide-elements'>LesMills informatie over sportcentrum</h2>
             <article>
                 <figure>
                     <img src="images/indexPhoto/afb2.jpeg" alt="afb2">
+                    <figcaption>cursus foto</figcaption>
                 </figure>
-                <div class='styleHome3'>
+                <div class='styleText'>
                     <h3>Primeur: LesMills en sportcentrum cursus lanceren immersive fitness programma the trip in nederland!</h3>
                     <a href='#'>Lees meer</a>
                 </div>
@@ -107,7 +115,7 @@
                 <figure>
                     <img src='images/indexPhoto/afb2-1.jpeg' alt='afb2-1'>
                 </figure>
-                <div class='styleHome'>
+                <div class='styleText'>
                     <h3>Hoe winnen sportschilen op social media?</h3>
                     <p>door Dr Jessica Rouse</p>
                 </div>
@@ -116,7 +124,7 @@
                 <figure>
                     <img src='images/indexPhoto/afb2-2.jpeg' alt='afb2-2'>
                 </figure>
-                <div class='styleHome'>
+                <div class='styleText'>
                     <h3>De waarheid over de kracht van herhaling</h3>
                     <p>door Sarah Shortt</p>
                 </div>
@@ -125,13 +133,16 @@
                 <figure>
                     <img src='images/indexPhoto/afb2-3.jpeg' alt='afb2-3'>
                 </figure>
-                <div class='styleHome'>
+                <div class='styleText'>
                     <h3>Behandel jouw deelnemers als gasten</h3>
                     <p>door Mary Marcia Brown</p>
                 </div>
             </article>
             <article>
-                <div class='styleHome'>
+                <figure>
+                    <img src='images/indexPhoto/green.png' alt='afb2-3'>
+                </figure>
+                <div class='styleText'>
                     <h3>Instructeur nieuws</h3>
                     <p>Bekijk alles</p>
                 </div>
@@ -140,63 +151,67 @@
 
         <!-- 4 section -->
         <section>
+            <h2 class='hide-elements'>LesMills informatie over barbell's</h2>
             <figure>
-                <img class='image-homePage' src="images/indexPhoto/afb3-home.jpeg" alt="afb3-web">
+                <img class="imageSize-homePage" src="images/indexPhoto/afb3-home.jpeg" alt="afb3-web">
             </figure>
-            <div class='styleHome'>
-                <h2>Bodypump</h2>
+            <div class='styleText'>
+                <h3>Bodypump</h3>
                 <p>De populairste barbell workout ter wereld. Word strak en sterk en doe wel 800 tot 1000 reps per les</p>
-                <a class='buttonLink-blue' href='bodyPump.html'>Ontdek Bodypump</a>
             </div>
+            <a class="link-button" href='bodyPump.html'>Ontdek Bodypump</a>
         </section>
 
         <!-- 5 section -->
         <section>
+            <h2 class='hide-elements'>LesMills informatie over groepless grit</h2>
             <figure>
-                <img class='image-homePage' src="images/indexPhoto/afb4-home.png" alt="afb4-web">
+                <img class="imageSize-homePage" src="images/indexPhoto/afb4-home.png" alt="afb4-web">
             </figure>
-            <div class='styleHome'>
-                <h2>Les Mills grit</h2>
+            <div class='styleText'>
+                <h3>Les Mills grit</h3>
                 <p>Word super fit met de gaafste high intensity interval training ter wereld</p>
-                <a class='buttonLink-blue' href='#'>Bekijk de workouts</a>
             </div>
+            <a class="link-button" href='#'>Bekijk de workouts</a>
         </section>
-
         <!-- 6 section -->
         <section>
+            <h2 class='hide-elements'>LesMills informatie over cycling experience</h2>
             <figure>
-                <img class='image-homePage' src="images/indexPhoto/afb5-home.png" alt="afb5-web">
+                <img class="imageSize-homePage" src="images/indexPhoto/afb5-home.png" alt="afb5-web">
             </figure>
-            <div class='styleHome'>
-                <h2>The trip</h2>
+            <div class='styleText'>
+                <h3>The trip</h3>
                 <p>Een gave, nieuwe cycling experience via een digitaal scherm, om in een hele andere wereld te komen!</p>
-                <a class='buttonLink-blue' href='#'>Meer weten</a>
             </div>
+            <a class="link-button" href='#'>Meer weten</a>
         </section>
-
         <!-- 7 section -->
         <section>
-            <div class='styleHome'>
-                <h2>'S werelds meest populaire workouts</h2>
+            <h2 class='hide-elements'>LesMills informatie over populaire workouts</h2>
+            <div class='styleText'>
+                <h3>'S werelds meest populaire workouts</h3>
                 <p>Ontdek alle 21 Les Mills fitness programma's</p>
-                <a class='buttonLink' href="#">start nu</a>
             </div>
+            <a class="link-button-noImg" href="#">start nu</a>
         </section>
-
     </main>
 
     <footer>
-        <h2>LesMills</h2>
-        <h3>for a fitter planet</h3>
+        <h2 class='hide-elements'>LesMills footer</h2>
+        <h3 class='hide-elements'>LesMills link en social media</h3>
+        <a>LesMills</a>
+        <h4>for a fitter planet</h4>
         <p>We zijn op een missie om een fittere planeet te creëren. We willen niet dat mensen alleen maar sporten, we willen dat ze een passie krijgen voor (groeps)fitness</p>
 
         <a href='#'>vind een les</a>
-        <a class='link-footer' href='#'>inloggen</a>
-<!-- links iconen SVG -->
+        <a href='#'>inloggen</a>
+        <!-- links iconen SVG -->
         <ul>
             <!-- Youtube -->
             <!-- source: https://iconmonstr.com/youtube-6-svg/ -->
-            <li><a href='#'> <svg xmlns="http://www.w3.org/2000/svg" ><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg></a></li>
+            <li><a href='#'> <svg xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" /></svg></a></li>
             <!-- facebook -->
             <li><a href='#'><svg xmlns="http://www.w3.org/2000/svg">
                         <path d="M17 9h-3.4V6.7c0-.8.6-1 .9-1h2.4V2h-3.3C10 2 9.1 4.8 9.1 6.5V9H7v3.8h2.1V22h4.5v-9.2h3L17 9z" /></svg></a></li>
@@ -205,16 +220,21 @@
                         <path d="M23.7 4.7c-.9.4-1.8.6-2.8.8 1-.6 1.8-1.5 2.1-2.7-.9.5-2 .9-3 1.2-.9-.9-2.1-1.5-3.5-1.5-2.6 0-4.8 2.1-4.8 4.8 0 .4 0 .7.1 1.1-4-.2-7.5-2.1-9.9-5-.4.7-.6 1.5-.6 2.4 0 1.7.8 3.1 2.1 4-.8 0-1.5-.2-2.2-.6v.1c0 2.3 1.7 4.3 3.8 4.7-.4.1-.8.2-1.3.2-.3 0-.6 0-.9-.1.6 1.9 2.4 3.3 4.5 3.3-1.6 1.3-3.7 2.1-6 2.1-.4 0-.8 0-1.1-.1 2.1 1.4 4.6 2.2 7.4 2.2 8.8 0 13.6-7.3 13.6-13.6v-.6c1-.8 1.8-1.7 2.5-2.7z" /></svg></a></li>
             <!-- instagram -->
             <!-- source: https://iconmonstr.com/instagram-1-svg/ -->
-            <li><a href='#'><svg xmlns="http://www.w3.org/2000/svg"><path d="M11.984 16.815c2.596 0 4.706-2.111 4.706-4.707 0-1.409-.623-2.674-1.606-3.538-.346-.303-.735-.556-1.158-.748-.593-.27-1.249-.421-1.941-.421s-1.349.151-1.941.421c-.424.194-.814.447-1.158.749-.985.864-1.608 2.129-1.608 3.538 0 2.595 2.112 4.706 4.706 4.706zm.016-8.184c1.921 0 3.479 1.557 3.479 3.478 0 1.921-1.558 3.479-3.479 3.479s-3.479-1.557-3.479-3.479c0-1.921 1.558-3.478 3.479-3.478zm5.223.369h6.777v10.278c0 2.608-2.114 4.722-4.722 4.722h-14.493c-2.608 0-4.785-2.114-4.785-4.722v-10.278h6.747c-.544.913-.872 1.969-.872 3.109 0 3.374 2.735 6.109 6.109 6.109s6.109-2.735 6.109-6.109c.001-1.14-.327-2.196-.87-3.109zm2.055-9h-12.278v5h-1v-5h-1v5h-1v-4.923c-.346.057-.682.143-1 .27v4.653h-1v-4.102c-1.202.857-2 2.246-2 3.824v3.278h7.473c1.167-1.282 2.798-2 4.511-2 1.722 0 3.351.725 4.511 2h7.505v-3.278c0-2.608-2.114-4.722-4.722-4.722zm2.722 5.265c0 .406-.333.735-.745.735h-2.511c-.411 0-.744-.329-.744-.735v-2.53c0-.406.333-.735.744-.735h2.511c.412 0 .745.329.745.735v2.53z"/></svg></a></li>
+            <li><a href='#'><svg xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11.984 16.815c2.596 0 4.706-2.111 4.706-4.707 0-1.409-.623-2.674-1.606-3.538-.346-.303-.735-.556-1.158-.748-.593-.27-1.249-.421-1.941-.421s-1.349.151-1.941.421c-.424.194-.814.447-1.158.749-.985.864-1.608 2.129-1.608 3.538 0 2.595 2.112 4.706 4.706 4.706zm.016-8.184c1.921 0 3.479 1.557 3.479 3.478 0 1.921-1.558 3.479-3.479 3.479s-3.479-1.557-3.479-3.479c0-1.921 1.558-3.478 3.479-3.478zm5.223.369h6.777v10.278c0 2.608-2.114 4.722-4.722 4.722h-14.493c-2.608 0-4.785-2.114-4.785-4.722v-10.278h6.747c-.544.913-.872 1.969-.872 3.109 0 3.374 2.735 6.109 6.109 6.109s6.109-2.735 6.109-6.109c.001-1.14-.327-2.196-.87-3.109zm2.055-9h-12.278v5h-1v-5h-1v5h-1v-4.923c-.346.057-.682.143-1 .27v4.653h-1v-4.102c-1.202.857-2 2.246-2 3.824v3.278h7.473c1.167-1.282 2.798-2 4.511-2 1.722 0 3.351.725 4.511 2h7.505v-3.278c0-2.608-2.114-4.722-4.722-4.722zm2.722 5.265c0 .406-.333.735-.745.735h-2.511c-.411 0-.744-.329-.744-.735v-2.53c0-.406.333-.735.744-.735h2.511c.412 0 .745.329.745.735v2.53z" /></svg></a></li>
             <!-- linkedin -->
             <li><a href='#'><svg xmlns="http://www.w3.org/2000/svg">
                         <path d="M2.8 8.8h3.9v12.7H2.8V8.8zm2-6.3c1.3 0 2.3 1 2.3 2.3S6 7.1 4.8 7.1c-1.3 0-2.3-1-2.3-2.3s1-2.3 2.3-2.3M9.2 8.8H13v1.7c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6v6.9h-3.9v-6.2c0-1.5 0-3.4-2-3.4-2.1 0-2.4 1.6-2.4 3.3v6.3H9.2V8.8z" /></svg></a></li>
-
         </ul>
-
+        <section>
+            <h2 class='hide-elements'>Footer informatie, wie het heeft gemaakt en verwijzing naar de officiële website</h2>
+            <!-- footer: made by CMD student-->
+            <p>&copy; 2021 &dash; Thuan - Hoa Le </p>
+            <a href="https://www.lesmills.com/nl/">Originele site: Les Mills</a>
+        </section>
     </footer>
-
     <script src="scripts/script.js"></script>
 </body>
 
 </html>
+<!-- symbolen source: https://www.toptal.com/designers/htmlarrows/ */
